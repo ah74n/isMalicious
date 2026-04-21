@@ -81,7 +81,8 @@ async function simulateScan(type) {
     statusText.className = "status-text";
     logList.innerHTML = "";
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/scan-url', {
+        // --- UPDATED RAILWAY LINK HERE ---
+        const response = await fetch('https://ismalicious-production-b4dc.up.railway.app/api/scan-url', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -117,7 +118,8 @@ async function runDynamicSandbox(urlInput) {
     sandboxContent.classList.add('hidden');
     trafficList.innerHTML = "";
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/sandbox-scan', {
+        // --- UPDATED RAILWAY LINK HERE ---
+        const response = await fetch('https://ismalicious-production-b4dc.up.railway.app/api/sandbox-scan', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: urlInput })
