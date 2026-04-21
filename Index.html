@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isMalicious - AI Link Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+            <h1 class="brand-name">isMalicious</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container tight-spacing">
+        <section class="hero">
+            <p>Our AI-powered engine analyzes behavior to detect phishing, malware, and other malicious activity.</p>
+        </section>
+
+        <section class="scanner-container">
+            <div class="scanner-box">
+                <div id="url-section" class="tab-content active">
+                    <div class="input-group">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="url-input" placeholder="paste your link here">
+                        <button id="clear-btn" class="clear-btn" onclick="clearInput()" title="Clear input">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button class="main-btn" onclick="simulateScan('url')">Check Link</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-box hidden" id="results-dashboard">
+            <div class="results-grid">
+                
+                <div class="analysis-card static-card">
+                    <h3 class="card-title">Static analysis</h3>
+                    <div class="result-display">
+                        <div class="loader" id="scan-loader"></div>
+                        <div class="status-icon hidden" id="status-icon"></div>
+                        <p class="status-text" id="status-text">Analysing...</p>
+                        <p class="risk-score hidden" id="risk-score">Risk Score: <span id="score-val">0</span>/100</p>
+                    </div>
+                    <div class="details-log hidden" id="details-log">
+                        <h4>Detection Details:</h4>
+                        <ul id="log-list"></ul>
+                    </div>
+                </div>
+
+                <div class="analysis-card sandbox-card" id="sandbox-results">
+                    <h3 class="card-title">Sandbox analysis</h3>
+                    
+                    <div id="sandbox-loader" class="sandbox-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Invisible browser is fetching live evidence...
+                    </div>
+
+                    <div id="sandbox-content" class="hidden">
+                        <p class="sandbox-subtitle">Live Screenshot Evidence:</p>
+                        <img id="sandbox-screenshot" src="" alt="Website Screenshot" class="sandbox-img">
+                        
+                        <p class="sandbox-subtitle mt-15">Intercepted Background Traffic:</p>
+                        <p class="sandbox-desc">The site secretly tried to connect to these servers:</p>
+                        <ul id="sandbox-traffic-list" class="traffic-list"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 isMalicious Project. All rights reserved.</p>
+        <p class="collab-tag">footer</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
